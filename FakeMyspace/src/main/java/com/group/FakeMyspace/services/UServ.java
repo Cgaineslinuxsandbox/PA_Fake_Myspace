@@ -10,14 +10,9 @@ import com.group.FakeMyspace.models.User;
 import com.group.FakeMyspace.repo.UserRepository;
 
 
-
 @Service
 public class UServ {
 
-	
-	
-	
-	
 	
 	private final UserRepository userRepository;
 
@@ -69,6 +64,7 @@ public class UServ {
 
 		
 		
+	
 	
 	
 }

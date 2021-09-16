@@ -21,8 +21,18 @@ import com.group.FakeMyspace.services.UServ;
 @Controller
 public class MainController {
 	
-	@Autowired
-	private  UServ uServ;
+	private final UServ uServ;
+    
+	public MainController(UServ uServ) {
+		this.uServ = uServ;
+		}
+	
+	
+	//	@Autowired
+//	private  UServ uServ;
+	
+	
+	
 	
 	private static String UPLOADED_FOLDER = "src/main/resources/static/img/";
 	
