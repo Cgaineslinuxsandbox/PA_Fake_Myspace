@@ -25,7 +25,7 @@ public class User {
 		@NotBlank
 		private String name;
 		@NotBlank
-		private String email;
+		private String E_mail;
 		@Size(min=8)
 		private String password;
 		@Transient
