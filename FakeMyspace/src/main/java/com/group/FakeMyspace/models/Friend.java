@@ -21,7 +21,10 @@ public class Friend {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@OneToOne(mappedBy="topEight", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
 	private boolean topEight;
+	private String friendRequest;
 	
 	@Column(updatable=false)
     private Date createdAt;
@@ -85,5 +88,13 @@ public class Friend {
 
 	public void setConnection(User connection) {
 		this.connection = connection;
+	}
+
+	public String getFriendRequest() {
+		return friendRequest;
+	}
+
+	public void setFriendRequest(String friendRequest) {
+		this.friendRequest = friendRequest;
 	}
 }

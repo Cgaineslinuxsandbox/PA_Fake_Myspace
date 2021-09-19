@@ -46,6 +46,9 @@ public class User {
         private Friend amigo;
 		
 		@OneToOne(fetch=FetchType.LAZY)
+		private Friend accepted;
+		
+		@OneToOne(fetch=FetchType.LAZY)
         private Message messageReceived;
 		
 		@OneToMany(mappedBy="sender", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
@@ -166,5 +169,13 @@ public class User {
 
 		public void setComment(List<Comment> comment) {
 			this.comment = comment;
+		}
+
+		public Friend getAccepted() {
+			return accepted;
+		}
+
+		public void setAccepted(Friend accepted) {
+			this.accepted = accepted;
 		}
 }
