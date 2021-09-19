@@ -112,5 +112,8 @@ public class Friend {
 		this.updatedAt = updatedAt;
 	}
 	
+
 	
+	
+
 }
