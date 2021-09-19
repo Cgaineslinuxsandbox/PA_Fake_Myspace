@@ -12,35 +12,60 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
+//@TypeConverter(name="booleanToInteger", boolean = Integer.class)   <-Try to convery boolean to int
 @Table(name="friends")
 public class Friend {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
-	@OneToOne(mappedBy="topEight", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	@JoinColumn(name="user_id")
+//	@Convert("booleanToInteger")
 	private boolean topEight;
-	private String friendRequest;
-	
 	@Column(updatable=false)
-    private Date createdAt;
-    private Date updatedAt;
-    
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User owner;
-    
-    @OneToOne(mappedBy="connection", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User connection;
-
-	public Friend() {
-
+	private Date createAt;
+	private Date updatedAt;
+	
+	
+	@PrePersist
+	protected void onCreate() {
+		this.createAt = new Date();
 	}
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
+	
+	
+	
+	
+	//================ Relationship =================//
+	
+	//===== M21 User&Frienfds =====//
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="user_id")
+	private User owner;
+	
+	//===== 121 Friend&User =====//
+	@OneToOne(mappedBy="oneFriend", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private User oneUser;
+
+	
+	
+	
+	//================ Constructor =================//
+	public Friend() {
+	
+	}
+
+
+	
+	//================ Getter&Setter =================//
 
 	public Long getId() {
 		return id;
@@ -58,21 +83,6 @@ public class Friend {
 		this.topEight = topEight;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
 
 	public User getOwner() {
 		return owner;
@@ -82,19 +92,33 @@ public class Friend {
 		this.owner = owner;
 	}
 
-	public User getConnection() {
-		return connection;
+	public User getOneUser() {
+		return oneUser;
 	}
 
-	public void setConnection(User connection) {
-		this.connection = connection;
+	public void setOneUser(User oneUser) {
+		this.oneUser = oneUser;
 	}
+	
+	public Date getCreateAt() {
+		return createAt;
+	}
+	
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
+	
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	
 
-	public String getFriendRequest() {
-		return friendRequest;
-	}
+	
+	
 
-	public void setFriendRequest(String friendRequest) {
-		this.friendRequest = friendRequest;
-	}
 }
+
