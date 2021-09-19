@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -65,6 +66,7 @@ public class Friend {
 
 	
 	//================ Getter&Setter =================//
+
 	public Long getId() {
 		return id;
 	}
@@ -80,6 +82,7 @@ public class Friend {
 	public void setTopEight(boolean topEight) {
 		this.topEight = topEight;
 	}
+
 
 	public User getOwner() {
 		return owner;
@@ -118,3 +121,4 @@ public class Friend {
 	
 
 }
+
