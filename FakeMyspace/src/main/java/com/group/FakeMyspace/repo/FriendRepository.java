@@ -12,5 +12,13 @@ import com.group.FakeMyspace.models.User;
 public interface FriendRepository extends CrudRepository<Friend, Long>{
 	
 	List<Friend> findAllByOwner(User owner);
+	
+//	List<Friend> findAllByOwnerAndSort(User owner, Sort.by("topEight"));   //Try to convert the boolean to int and sort by desc
+	
+//	List<Friend> findAllByOwnerAndTopEightTrueDesc(User owner, boolean topEight);   //Try to sort the friend list by desc order of boolean
+	
+	List<Friend> findAllByOwnerAndTopEightTrue(User owner, boolean topEight);
+	
+	
 
 }

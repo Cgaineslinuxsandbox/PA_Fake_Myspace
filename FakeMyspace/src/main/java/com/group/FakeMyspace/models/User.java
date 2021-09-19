@@ -20,6 +20,7 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 @Entity
 @Table(name="users")
@@ -31,7 +32,24 @@ public class User {
 	@NotBlank
 	private String name;
 	@NotBlank
+	private String gender;
+	@NotBlank
+	private String location;
+	@NotBlank
+	private String quote;
+	@NotNull
+	private int age;
+	@NotBlank
 	private String email;
+	
+	
+	//FOR USER PROFILE PICTURE//
+	private String image_url;
+	//FOR USER PROFILE PICTURE//
+	
+	
+	
+	
 	@Size(min=8)
 	private String password;
 	@Transient
@@ -63,6 +81,11 @@ public class User {
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="friend_id")
 	private Friend oneFriend;
+	
+	
+	//===== 121 User&Blurb =====//
+	@OneToOne(mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Blurb blurb;
 	
 	
 	//===== 12M User&Messages =====//
@@ -189,6 +212,50 @@ public class User {
 	
 	public void setComment(List<Comment> comment) {
 		this.comment = comment;
+	}
+	
+	public String getGender() {
+		return gender;
+	}
+	
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	
+	public String getLocation() {
+		return location;
+	}
+	
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+	public int getAge() {
+		return age;
+	}
+	
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getQuote() {
+		return quote;
+	}
+	public void setQuote(String quote) {
+		this.quote = quote;
+	}
+	
+	public String getImage_url() {
+		return image_url;
+	}
+	
+	public void setImage_url(String image_url) {
+		this.image_url = image_url;
+	}
+	public Blurb getBlurb() {
+		return blurb;
+	}
+	public void setBlurb(Blurb blurb) {
+		this.blurb = blurb;
 	}
 
 	

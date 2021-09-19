@@ -17,13 +17,14 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 @Entity
+//@TypeConverter(name="booleanToInteger", boolean = Integer.class)   <-Try to convery boolean to int
 @Table(name="friends")
 public class Friend {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	
+//	@Convert("booleanToInteger")
 	private boolean topEight;
 	@Column(updatable=false)
 	private Date createAt;
