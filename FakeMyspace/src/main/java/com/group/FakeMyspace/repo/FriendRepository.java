@@ -9,5 +9,6 @@ import com.group.FakeMyspace.models.Friend;
 public interface FriendRepository extends CrudRepository <Friend, Long> {
 	Friend findByTopEightTrue(boolean topEight);
 	List<Friend> findAllByTopEightTrue(boolean topEight);
+	List<Friend> findAll();
 
 }
