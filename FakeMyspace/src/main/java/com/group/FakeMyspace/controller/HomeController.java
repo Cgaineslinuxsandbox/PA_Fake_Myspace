@@ -36,14 +36,17 @@ public class HomeController {
 		User user = this.uServ.findUserById(userId);
 		viewModel.addAttribute("user", user);
 		
-		List<Friend> top8 = this.mServ.findTopEightOfOwner(user);
+//		List<Comment> allComm = this.mServ.showAllComments(user);
+//		viewModel.addAttribute("allComm", allComm);
+		
+		List<Friend> top8 = this.mServ.findTopEightOfOwner(user, true);
 		viewModel.addAttribute("top8", top8);
 		return "Profile.jsp";
 	}
 	
 	@PostMapping("/main/{id}/postComment")
 	public String postComment(@PathVariable("id")Long uid, HttpSession session, @Valid@ModelAttribute("comment")Comment comment, Model viewModel, RedirectAttributes redirectAttr) {
-		if(session.getAttribute("user___id") == null) {
+		if(session.getAttribute("userId") == null) {
 			redirectAttr.addFlashAttribute("message", "You need to log in first!");
 			return "redirect:/auth";
 		}

@@ -11,8 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
@@ -98,14 +96,12 @@ public class User {
 	private Message messageReceived;
 	
 	
-	//===== M2M Users&Comments =====//
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			name="user_comment",
-			joinColumns = @JoinColumn(name="user_id"),
-			inverseJoinColumns = @JoinColumn(name="comment_id")
-			)
-	private List<Comment> comment;
+	//===== 12M Users&Comments =====//
+	@OneToMany(mappedBy="creator", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Comment> commentSent;
+	
+	@OneToMany(mappedBy="receiver", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private List<Comment> commentReceived;
 	
 	
 	
@@ -206,12 +202,21 @@ public class User {
 		this.messageReceived = messageReceived;
 	}
 	
-	public List<Comment> getComment() {
-		return comment;
+	
+	public List<Comment> getCommentSent() {
+		return commentSent;
 	}
 	
-	public void setComment(List<Comment> comment) {
-		this.comment = comment;
+	public void setCommentSent(List<Comment> commentSent) {
+		this.commentSent = commentSent;
+	}
+	
+	public List<Comment> getCommentReceived() {
+		return commentReceived;
+	}
+	
+	public void setCommentReceived(List<Comment> commentReceived) {
+		this.commentReceived = commentReceived;
 	}
 	
 	public String getGender() {

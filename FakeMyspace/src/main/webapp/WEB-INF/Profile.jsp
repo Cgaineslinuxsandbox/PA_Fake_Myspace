@@ -17,7 +17,14 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
+<!-- BootStrap Tutorial link: https://www.w3schools.com/bootstrap/default.asp -->
+
 <body>
+
+<div class="header">
+</div>
+
+
 
 <div class="userInfo">
 	<h1>${user.name }</h1>
@@ -26,6 +33,8 @@
 	<h4>${user.location }</h4>
 	<h4>${user.age }</h4>
 </div>
+
+
 
 
 <div class="userBlurb">
@@ -37,6 +46,8 @@
 	<h4>Who I'd like to meet</h4>
 	<h5>${user.blurb.meet }</h5>
 </div>
+
+
 
 
 <div class="userFriends">
@@ -52,21 +63,43 @@
 </div>
 
 
-<div class="comment">
-	<h3>Comments</h3>
-	<form:form method="POST" action="/main/${user.id}/postComment" modelAttribute="commentb">
+
+
+<div class="create_comment">
+<!-- Need a logic to hide the input box if the user is looking at his own page -->
+	<h3>Leave a comment</h3>
+	<form:form method="POST" action="/main/${user.id}/postComment" modelAttribute="comment">
 		<form:label path="content">Comment: </form:label>
 		<form:errors path="content"/>
 		<form:textarea path="content" placeholder="Enter your comment"/>
 		
-		<%-- <form:input type="hidden" value="${creator.id}" path="creator"/> --%>
+		
+		<form:input type="hidden" value="${user.id}" path="receiver"/>
+		<form:input type="hidden" value="${creator.id}" path="creator"/>
 		<button>Submit</button>
 	</form:form>
-	
-	
-	
+
 </div>
 
+
+
+
+<div class="commentList">
+<!-- Need a logic to hide the input box if the user is looking at his own page -->
+	<h3>Comments</h3>
+	<c:forEach items="${user.commentReceived }" var="comment">
+		<img alt="user image" src="${comment.creator.image_url }">
+		<h4><a href="/main/${comment.creator.id}">${comment.creator.name }</a></h4>
+		<h5>${comment.updatedAt }</h5>
+		<h5>${comment.content }</h5>
+	</c:forEach>
+</div>
+
+
+
+
+<div class="footer">
+</div>
 
 </body>
 </html>
