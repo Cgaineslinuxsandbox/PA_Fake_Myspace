@@ -3,6 +3,7 @@ package com.group.FakeMyspace.repo;
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+
 import org.springframework.stereotype.Repository;
 
 import com.group.FakeMyspace.models.Friend;
@@ -20,5 +21,6 @@ public interface FriendRepository extends CrudRepository<Friend, Long>{
 	List<Friend> findAllByOwnerAndTopEightTrue(User owner, boolean topEight);
 	
 	
+
 
 }

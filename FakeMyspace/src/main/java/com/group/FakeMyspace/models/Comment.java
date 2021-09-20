@@ -13,11 +13,14 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+
 import javax.validation.constraints.NotBlank;
+
 
 @Entity
 @Table(name="comments")
 public class Comment {
+
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -116,3 +119,4 @@ public class Comment {
 	
 	
 }
+

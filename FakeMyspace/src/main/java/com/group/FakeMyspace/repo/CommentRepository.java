@@ -11,6 +11,10 @@ import com.group.FakeMyspace.models.User;
 
 @Repository
 public interface CommentRepository  extends CrudRepository<Comment, Long>{
+
+
+
+
 	List<Comment> findAll();
 	
 	List<Comment> findAllByReceiver(User receiver);
