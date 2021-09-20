@@ -24,7 +24,7 @@ public class MySpaceService {
 	//========== User ========//
 	//Top8 List
 	public List<Friend> findTopEightOfOwner(User owner){
-		return this.fRepo.findAllByOwnerAndTopEightTrue(owner, Class<Boolean>);
+		return this.fRepo.findAllByOwnerAndTopEightTrue(owner);
 	}
 	
 	
