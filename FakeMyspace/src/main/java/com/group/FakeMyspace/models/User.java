@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
@@ -18,7 +20,6 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 @Entity
 @Table(name="users")
@@ -30,13 +31,13 @@ public class User {
 	private Long id;
 	@NotBlank
 	private String name;
-	@NotBlank
+//	@NotBlank
 	private String gender;
-	@NotBlank
+//	@NotBlank
 	private String location;
-	@NotBlank
+//	@NotBlank
 	private String quote;
-	@NotNull
+//	@NotNull
 	private int age;
 	@NotBlank
 	private String email;
@@ -80,6 +81,23 @@ public class User {
 	@OneToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="friend_id")
 	private Friend oneFriend;
+	
+	
+	//===== 121 User&Top8 list =====//
+	@OneToOne(mappedBy="owner", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Top8 myTop8;
+	
+	//===== M2M Top8&User =====//
+//	@ManyToOne(fetch=FetchType.LAZY)
+//	@JoinColumn(name="top8_id")
+//	private Top8 fList;
+	@ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "users_top8", 
+        joinColumns = @JoinColumn(name = "user_id"), 
+        inverseJoinColumns = @JoinColumn(name = "top8_id")
+    )
+    private List<Top8> top8List;
 	
 	
 	//===== 121 User&Blurb =====//
@@ -263,7 +281,24 @@ public class User {
 	public void setBlurb(Blurb blurb) {
 		this.blurb = blurb;
 	}
+	
+	public List<Top8> getTop8List() {
+		return top8List;
+	}
+	
+	public void setTop8List(List<Top8> top8List) {
+		this.top8List = top8List;
+	}
+	
+	public Top8 getMyTop8() {
+		return myTop8;
+	}
+	
+	public void setMyTop8(Top8 myTop8) {
+		this.myTop8 = myTop8;
+	}
 
+	
 	
 	
 

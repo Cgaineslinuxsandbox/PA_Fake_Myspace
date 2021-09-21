@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.group.FakeMyspace.models.Friend;
 import com.group.FakeMyspace.repo.FriendRepository;
+import com.group.FakeMyspace.repo.Top8Repository;
 
 @Service
 public class FriendService {
 	@Autowired
 	private FriendRepository fRepo;
+	
+	@Autowired
+	private Top8Repository tRepo;
 	
 	public List<Friend> getAllFriends(){
 		return this.fRepo.findAll();

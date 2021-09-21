@@ -44,7 +44,7 @@ public class MainController {
 		return "index.jsp";
 	}
 	
-	 @GetMapping("/auth")
+	@GetMapping("/auth")
 	    public String home(@ModelAttribute("user") User user) {
 	    	return "logReg.jsp";
 	    }
