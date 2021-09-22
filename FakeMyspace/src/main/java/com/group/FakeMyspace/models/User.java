@@ -205,6 +205,7 @@ public class User {
 		this.oneFriend = oneFriend;
 	}
 	
+
 	public List<Message> getMessageSent() {
 		return messageSent;
 	}
@@ -238,6 +239,7 @@ public class User {
 		this.commentReceived = commentReceived;
 	}
 	
+
 	public String getGender() {
 		return gender;
 	}
@@ -275,12 +277,29 @@ public class User {
 	public void setImage_url(String image_url) {
 		this.image_url = image_url;
 	}
+
+	public Message getMessageReceived() {
+		return messageReceived;
+	}
+
+	public void setMessageReceived(Message messageReceived) {
+		this.messageReceived = messageReceived;
+	}
+
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
+	}
 	public Blurb getBlurb() {
 		return blurb;
 	}
 	public void setBlurb(Blurb blurb) {
 		this.blurb = blurb;
 	}
+
 	
 	public List<Top8> getTop8List() {
 		return top8List;
@@ -302,5 +321,14 @@ public class User {
 	
 	
 
+
+
+	public List<Message> getMessageSent() {
+		return messageSent;
+	}
+	public void setMessageSent(List<Message> messageSent) {
+		this.messageSent = messageSent;
+	}
+	
 
 }
