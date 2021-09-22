@@ -9,6 +9,7 @@
 <body>
 
 <h1>Your message has been sent</h1>
+<div><a href=""/main/{id}""><button class="btn btn-dark">Back to profile</button></a></div>
 
 </body>
 </html>
