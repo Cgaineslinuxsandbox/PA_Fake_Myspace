@@ -127,7 +127,7 @@ public class MainController {
 	    	return "sent.jsp";
 	    }
 	    
-	    @PostMapping("/main/{id}/imageUpload")
+	    @PostMapping("/main/imageUpload")
 		public String up(@RequestParam("pic") MultipartFile file, HttpSession session, Model model, @RequestParam("cat") Long prod__id) {
 			
 			User newPic = new User();
