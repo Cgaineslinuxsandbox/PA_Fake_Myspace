@@ -1,7 +1,6 @@
 package com.group.FakeMyspace.models;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -48,15 +46,16 @@ public class Comment {
 	
 	//================ Relationship =================//
 	
-	//===== M2M Users&Comments =====//
-	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			name="user_comment",
-			joinColumns = @JoinColumn(name="comment_id"),
-			inverseJoinColumns = @JoinColumn(name="user_id")
-			)
-	private List<User> creator;
-
+	//===== M12M Users&Comments =====//
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="creator_id")
+	private User creator;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="receiver_id")
+	private User receiver;
+	
+	
 	
 	
 	
@@ -99,14 +98,20 @@ public class Comment {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-	public List<User> getCreator() {
+	public User getCreator() {
 		return creator;
 	}
-	
-	public void setCreator(List<User> creator) {
+	public void setCreator(User creator) {
 		this.creator = creator;
 	}
+	public User getReceiver() {
+		return receiver;
+	}
+	public void setReceiver(User receiver) {
+		this.receiver = receiver;
+	}
+	
+
 	
 	
 	
