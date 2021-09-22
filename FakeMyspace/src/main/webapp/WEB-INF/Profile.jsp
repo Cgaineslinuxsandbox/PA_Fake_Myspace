@@ -21,7 +21,13 @@
 
 <div class="userInfo">
 	<h1>${user.name }</h1>
-	<img alt="product image" src="${user.image_url }">
+	<img alt="User image" src="${user.image_url }">
+	<form:form method="POST" enctype="multipart/form-data" action="/IDK where this goes" modelAttribute="user" >
+	<input type="file" name="pic" accept=" image/png, image/jpeg" class="form-control-file" id="inlineFormInput">
+	<button>Upload a Pic</button>
+	</form:form>
+	
+	
 	<h4>${user.gender }</h4>
 	<h4>${user.location }</h4>
 	<h4>${user.age }</h4>
