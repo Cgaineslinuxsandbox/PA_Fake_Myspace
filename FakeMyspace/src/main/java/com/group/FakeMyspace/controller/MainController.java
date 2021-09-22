@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.Jesus.vegan.models.Food;
 import com.group.FakeMyspace.models.Message;
 import com.group.FakeMyspace.models.User;
 import com.group.FakeMyspace.services.UServ;
