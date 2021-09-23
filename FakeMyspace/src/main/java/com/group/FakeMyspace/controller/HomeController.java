@@ -37,9 +37,9 @@ public class HomeController {
 	
 	//========== MainPage =========//
 	@GetMapping("/main/{id}")
-	public String mainPage(HttpSession session, @ModelAttribute("comment")Comment comment, Model viewModel, @ModelAttribute("User") User user, @PathVariable("id") Long uid) {
+	public String mainPage(HttpSession session, @ModelAttribute("comment")Comment comment, Model viewModel, @ModelAttribute("User") User user, @PathVariable("id") Long id) {
 		Long userId = (Long)session.getAttribute("userId");
-		User usr = this.uServ.findUserById(userId);
+		User usr = uServ.findUserById(id);
 		viewModel.addAttribute("user", usr);
 		
 		

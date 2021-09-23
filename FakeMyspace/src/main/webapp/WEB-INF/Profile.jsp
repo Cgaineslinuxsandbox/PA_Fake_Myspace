@@ -60,7 +60,7 @@
 
 <div class="comment">
 	<h3>Comments</h3>
-	<form:form method="POST" action="/main/${user.id}/postComment" modelAttribute="commentb">
+	<form:form method="POST" action="/main/${user.id}/postComment" modelAttribute="comment">
 		<form:label path="content">Comment: </form:label>
 		<form:errors path="content"/>
 		<form:textarea path="content" placeholder="Enter your comment"/>

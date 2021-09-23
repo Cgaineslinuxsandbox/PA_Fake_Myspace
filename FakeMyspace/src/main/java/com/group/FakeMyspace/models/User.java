@@ -32,13 +32,13 @@ public class User {
 	private Long id;
 	@NotBlank
 	private String name;
-	@NotBlank
+	
 	private String gender;
-	@NotBlank
+	
 	private String location;
-	@NotBlank
+	
 	private String quote;
-	@NotNull
+	
 	private int age;
 	@NotBlank
 	private String email;
