@@ -115,10 +115,4 @@ public class Friend {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-
-	
-	
-
 }
-
