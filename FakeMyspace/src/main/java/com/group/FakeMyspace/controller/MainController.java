@@ -128,10 +128,12 @@ public class MainController {
 	    }
 	    
 	    @PostMapping("/main/imageUpload")
-		public String up(@RequestParam("pic") MultipartFile file, HttpSession session, Model model, @RequestParam("cat") Long prod__id) {
+		public String up(@RequestParam("pic") MultipartFile file, HttpSession session, Model model, @RequestParam("user") Long id) {
 			
 			User newPic = new User();
 			Long userId = (Long)session.getAttribute("userId");
+			newPic.setId(id);
+			
 			
 			try {
 	    		byte[] bytes = file.getBytes();

@@ -23,9 +23,21 @@ public class MySpaceService {
 	
 	//========== User ========//
 	//Top8 List
+<<<<<<< Updated upstream
+=======
+
+	//public List<Friend> findTopEightOfOwner(User owner){
+		//return this.fRepo.findAllByOwnerAndTopEightTrue(owner, true);
+	//}
+
+>>>>>>> Stashed changes
 	public List<Friend> findTopEightOfOwner(User owner){
 		return this.fRepo.findAllByOwnerAndTopEightTrue(owner, true);
 	}
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	
 	
 	

@@ -24,7 +24,7 @@
 	<img alt="User image" src="${user.image_url }">
 	<form:form method="POST" enctype="multipart/form-data" action="/main/imageUpload" modelAttribute="user" >
 	<input type="file" name="pic" accept=" image/png, image/jpeg" class="form-control-file" id="inlineFormInput">
-	<button>Upload a Pic</button>
+	<input type="submit" value="Submit"/>
 	</form:form>
 	
 	

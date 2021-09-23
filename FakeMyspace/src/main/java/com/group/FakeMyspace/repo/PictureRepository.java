@@ -12,7 +12,7 @@ import com.group.FakeMyspace.models.User;
 
 public interface PictureRepository extends CrudRepository<Picture, Long>{
 
-	List<Picture> findAllByProduct(User user);
+	List<Picture> findAllByUser(User user);
 	
 	
 }
