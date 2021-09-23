@@ -4,15 +4,20 @@ import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.group.FakeMyspace.models.User;
+import com.group.FakeMyspace.repo.BlurbRepository;
 import com.group.FakeMyspace.repo.UserRepository;
 
 
 @Service
 public class UServ {
 
+	
+	@Autowired
+	private BlurbRepository bRepo;
 	
 	private final UserRepository userRepository;
 

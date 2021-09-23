@@ -25,8 +25,12 @@ public class Friend {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-//	@Convert("booleanToInteger")
-	private boolean topEight;
+
+//  private boolean topEight;    //make this individual model/table between users
+	
+	private boolean approve;     //default as 0 and change to 1 if receiver approves, the all friend list show only the approve.Ture
+	
+	
 	@Column(updatable=false)
 	private Date createAt;
 	private Date updatedAt;
@@ -62,8 +66,14 @@ public class Friend {
 	public Friend() {
 	
 	}
-
-
+	
+	public Friend(User owner, User oneUser) {
+		this.owner = owner;
+		this.oneUser = oneUser;
+	}
+	
+	
+	
 	
 	//================ Getter&Setter =================//
 
@@ -74,15 +84,6 @@ public class Friend {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public boolean isTopEight() {
-		return topEight;
-	}
-
-	public void setTopEight(boolean topEight) {
-		this.topEight = topEight;
-	}
-
 
 	public User getOwner() {
 		return owner;
@@ -115,4 +116,22 @@ public class Friend {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+<<<<<<< HEAD
 }
+=======
+	
+	public boolean isApprove() {
+		return approve;
+	}
+	
+	public void setApprove(boolean approve) {
+		this.approve = approve;
+	}
+	
+	
+	
+	
+
+}
+
+>>>>>>> dfbec0ee0adca766eef871d84a0d5d60aa489e13

@@ -23,9 +23,15 @@ public class MySpaceService {
 	
 	//========== User ========//
 	//Top8 List
+<<<<<<< HEAD
 	//public List<Friend> findTopEightOfOwner(User owner){
 		//return this.fRepo.findAllByOwnerAndTopEightTrue(owner, true);
 	//}
+=======
+	public List<Friend> findTopEightOfOwner(User owner){
+		return this.fRepo.findAllByOwnerAndTopEightTrue(owner);
+	}
+>>>>>>> dfbec0ee0adca766eef871d84a0d5d60aa489e13
 	
 	
 	
@@ -33,6 +39,11 @@ public class MySpaceService {
 	//Create
 	public Comment createComm(Comment newComment) {
 		return this.cRepo.save(newComment);
+	}
+	
+	//Show All
+	public List<Comment> showAllComments(User receiver){
+		return this.cRepo.findAllByReceiver(receiver);
 	}
 
 }

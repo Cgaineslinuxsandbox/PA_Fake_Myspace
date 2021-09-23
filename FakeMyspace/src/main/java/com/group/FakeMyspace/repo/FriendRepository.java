@@ -20,7 +20,11 @@ public interface FriendRepository extends CrudRepository<Friend, Long>{
 	
 //	List<Friend> findAllByOwnerAndTopEightTrueDesc(User owner, boolean topEight);   //Try to sort the friend list by desc order of boolean
 	
+<<<<<<< HEAD
 //	List<Friend> findAllByOwnerAndTopEightTrue(User owner, boolean topEight);
+=======
+	List<Friend> findAllByOwnerAndTopEightTrue(User owner);
+>>>>>>> dfbec0ee0adca766eef871d84a0d5d60aa489e13
 	
 	
 
