@@ -239,7 +239,7 @@ public class User {
 	public void setBlurb(Blurb blurb) {
 		this.blurb = blurb;
 	}
-<<<<<<< Updated upstream
+
 	public List<Message> getMessageSent() {
 		return messageSent;
 	}
@@ -247,27 +247,27 @@ public class User {
 		this.messageSent = messageSent;
 	}
 	
-=======
 
-	
-	public List<Top8> getTop8List() {
-		return top8List;
-	}
-	
-	public void setTop8List(List<Top8> top8List) {
-		this.top8List = top8List;
-	}
-	
-	public Top8 getMyTop8() {
-		return myTop8;
-	}
-	
-	public void setMyTop8(Top8 myTop8) {
-		this.myTop8 = myTop8;
-	}
 
-	
-	
-
->>>>>>> Stashed changes
+//	
+//	public List<Top8> getTop8List() {
+//		return top8List;
+//	}
+//	
+//	public void setTop8List(List<Top8> top8List) {
+//		this.top8List = top8List;
+//	}
+//	
+//	public Top8 getMyTop8() {
+//		return myTop8;
+//	}
+//	
+//	public void setMyTop8(Top8 myTop8) {
+//		this.myTop8 = myTop8;
+//	}
+//
+//	
+//	
+//
+//>>>>>>> Stashed changes
 }

@@ -115,21 +115,20 @@ public class Friend {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-<<<<<<< Updated upstream
-=======
 
 
 
-	
-	public boolean isApprove() {
-		return approve;
-	}
-	
-	public void setApprove(boolean approve) {
-		this.approve = approve;
-	}
-	
->>>>>>> Stashed changes
+
+//	
+//	public boolean isApprove() {
+//		return approve;
+//	}
+//	
+//	public void setApprove(boolean approve) {
+//		this.approve = approve;
+//	}
+//	
+
 	
 
 	
@@ -137,7 +136,4 @@ public class Friend {
 
 }
 
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes

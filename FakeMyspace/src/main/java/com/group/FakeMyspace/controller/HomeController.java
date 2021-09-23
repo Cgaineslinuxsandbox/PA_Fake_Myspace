@@ -63,8 +63,7 @@ public class HomeController {
 	}
 	
 	
-<<<<<<< Updated upstream
-=======
+
 	//========== View All Friend Page =========//
 	@GetMapping("/{id}/allfriends")
 	public String allFriend(HttpSession session, @ModelAttribute("friend")Friend friend, Model viewModel, @PathVariable("id")Long uid) {
@@ -87,12 +86,12 @@ public class HomeController {
 	//******** If we are changing the boolean to remove a friend from Top8, should we use @GetMapping or @PostMapping ********//
 	
 	//========== Delete a friend =========//
-	@GetMapping("/deleteFriend/{id}")
-	public String DeleteTask(@PathVariable("id")Long fid) {
-		this.fServ.delete(fid);
-		return "redirect:/tasks";
-	}
->>>>>>> Stashed changes
+//	@GetMapping("/deleteFriend/{id}")
+//	public String DeleteTask(@PathVariable("id")Long fid) {
+//		this.fServ.delete(fid);
+//		return "redirect:/tasks";
+//	}
+
 	
 	
 	

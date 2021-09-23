@@ -13,13 +13,13 @@ public class FriendService {
 	@Autowired
 	private FriendRepository fRepo;
 	
-	public List<Friend> getAllFriends(){
-		return this.fRepo.findAll();
-	}
-	
-	public List<Friend> findTopEight(boolean topEight){
-		return this.fRepo.findAllByTopEightTrue(topEight);
-	}
+//	public List<Friend> getAllFriends(){
+//		return this.fRepo.findAll();
+//	}
+//	
+//	public List<Friend> findTopEight(boolean topEight){
+//		return this.fRepo.findAllByTopEightTrue(topEight);
+//	}
 	
 	public Friend findbyId(Long id) {
 		return this.fRepo.findById(id).orElse(null);
